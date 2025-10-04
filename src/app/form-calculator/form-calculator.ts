@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { NgxMaskDirective } from 'ngx-mask';
 
-import { InvestmentData } from '../models/investiment-data';
+import { FormCalculatorService } from '../services/form-calculator.service';
+
+import { InvestmentData } from '../models/investment-data';
 
 @Component({
   selector: 'app-form-calculator',
@@ -18,14 +19,18 @@ export class FormCalculator {
   expectedReturn: number = 0;
   duration: number = 0;
 
+  constructor(private formCalculatorService: FormCalculatorService) {}
+
   onSubmit(): void {
     const investmentData: InvestmentData = {
-      initialInvestiment: this.initialInvestment,
-      anualInvestiment: this.annualInvestment,
+      initialInvestment: this.initialInvestment,
+      anualInvestment: this.annualInvestment,
       expectedReturn: this.expectedReturn,
       duration: this.duration,
     };
     console.log('Investment Data:', investmentData);
-    // Aqui você pode adicionar a lógica para processar os dados do formulário
+
+    const total = this.formCalculatorService.calculateTotalInvestment(investmentData);
+    alert(`Total Investment after ${this.duration} years: $${total.toFixed(2)}`);
   }
 }

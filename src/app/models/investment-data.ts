@@ -1,6 +1,6 @@
 export interface InvestmentData {
-  initialInvestiment: number;
-  anualInvestiment: number;
+  initialInvestment: number;
+  anualInvestment: number;
   expectedReturn: number;
   duration: number;
 }

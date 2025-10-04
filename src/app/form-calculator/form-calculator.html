@@ -1,21 +1,21 @@
 <form (ngSubmit)="onSubmit()">
   <div>
-    <label for="initialInvestiment">Initial Investment:</label>
+    <label for="initialInvestment">Initial Investment:</label>
     <input
-      id="initialInvestiment"
+      id="initialInvestment"
       type="text"
       [(ngModel)]="initialInvestment"
       mask="separator.2"
       thousandSeparator="."
       decimalMarker=","
       prefix="R$ "
-      name="initialInvestiment"
+      name="initialInvestment"
     />
   </div>
   <div>
-    <label for="anualInvestiment">Annual Investment:</label>
+    <label for="anualInvestment">Annual Investment:</label>
     <input
-      id="anualInvestiment"
+      id="anualInvestment"
       type="text"
       [(ngModel)]="annualInvestment"
       mask="separator.2"
